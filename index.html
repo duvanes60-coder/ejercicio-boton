@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cosa random</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.15);
+      padding: 30px;
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      width: 300px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #ffdd57;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .msg {
+      margin-top: 15px;
+      text-align: center;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Formulario random</h2>
+    <input type="text" id="nombre" placeholder="Escribe tu nombre">
+    <button id="btn">Haz magia ✨</button>
+    <div class="msg" id="msg"></div>
+  </div>
+
+  <script>
+    const btn = document.getElementById("btn");
+    const input = document.getElementById("nombre");
+    const msg = document.getElementById("msg");
+
+    btn.addEventListener("click", () => {
+      const nombre = input.value.trim();
+
+      if (nombre === "") {
+        msg.textContent = "Ey, escribe algo primero 😅";
+        msg.style.color = "#ffb3b3";
+        return;
+      }
+
+      msg.textContent = `Hola ${nombre}, el botón funciona 😎`;
+      msg.style.color = "#b9ffdd";
+
+      // efecto random
+      document.body.style.background =
+        `linear-gradient(135deg, hsl(${Math.random()*360},70%,60%), hsl(${Math.random()*360},70%,40%))`;
+    });
+  </script>
+
+</body>
+</html>
